@@ -61,7 +61,9 @@ if not hasattr(st.session_state, 'generate_pressed'):
 
 if role_title and job_description:
     if not st.session_state.generate_pressed:
+
         if st.button("GENERATE JOB DESCRIPTION", key = "gen1"):
+
             st.session_state.generate_pressed = True
             st.session_state.messages = []
             st.session_state.messages.append({"sender": "user", "message": f"Job Role: {role_title}, Job Description: {job_description}"})
@@ -90,7 +92,6 @@ if role_title and job_description:
                  questions = re.findall(r'\d+\.\s(.+)', role_description)
             else:
                  questions = re.findall(r'- (.+\?)', role_description)
-    #r'\d+\..+:\s(.+\?)'
             list_questions = []
             for question in range(len(questions)):
                         
@@ -121,7 +122,10 @@ if role_title and job_description:
 
             context_normalized = "\n\n".join(context_cleaned)
                 
+
             if st.button("GENERATE JOB DESCRIPTION", key = "gen2"):
+
+
                     
 
                 
