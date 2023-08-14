@@ -1,4 +1,4 @@
-Job Role: ml engineer
+Job Role: Data Scientist
 
-job_description: We are [Company Name], a leading [industry/sector] company known for our [brief company description, mission, or key accomplishments]. We are currently seeking a skilled and motivated Machine Learning Engineer to join our dynamic team. As a Machine Learning Engineer
+job_description: We are seeking a skilled and innovative Data Scientist to join our dynamic team. In this role, you will leverage your expertise in data analysis, statistical modeling, and machine learning to extract valuable insights from complex datasets. Collaborating closely with cross-functional teams, you will contribute to data-driven decision-making, develop predictive models, and create data visualizations that drive actionable recommendations
 

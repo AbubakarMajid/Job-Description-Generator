@@ -33,7 +33,6 @@ Can you describe a typical workday for the {role_title}?
 What specific software, tools, or equipment should the candidate be proficient with?
 What types of projects will the {role_title} typically be involved in?
 How does this role contribute to the overall objectives of the department and the company?
-How does this role contribute to the overall objectives of the department and the company?
 To whom will the {role_title} be reporting? How does the team structure look like?
 Who will the {role_title} be collaborating with frequently?
 How much knowledge of our industry is required for this role?
@@ -62,7 +61,7 @@ if not hasattr(st.session_state, 'generate_pressed'):
 
 if role_title and job_description:
     if not st.session_state.generate_pressed:
-        if st.button("GENERATE"):
+        if st.button("GENERATE JOB DESCRIPTION", key = "gen1"):
             st.session_state.generate_pressed = True
             st.session_state.messages = []
             st.session_state.messages.append({"sender": "user", "message": f"Job Role: {role_title}, Job Description: {job_description}"})
@@ -103,30 +102,30 @@ if role_title and job_description:
                             conversation.empty()
                             exists = any(message['message'] == answer for message in st.session_state.messages)
                             if not exists:
-                                st.session_state.messages.append({"sender": "user", "message": answer})
+                                st.session_state.messages.append({"sender": "user", "message": f"{questions[question]}: {answer}"})
                             conversation.write(display_messages(st.session_state.messages))
                             with st.chat_message("user"):
                                 st.write(answer)
                             with open('CONTEXT.txt', "a") as f:
                                 f.write("\nQuestion:" + questions[question] + "\n" + "Answer:" + answer + "\n\n")
-            if len(list_questions)  == len(questions):
-                with open("CONTEXT.txt", "r") as f:
-                  context_raw = f.read()
-                context_raw = context_raw.split("\n\n")
-                context_cleaned = []
-                for i in context_raw:
+
+            with open("CONTEXT.txt", "r") as f:
+                context_raw = f.read()
+            context_raw = context_raw.split("\n\n")
+            context_cleaned = []
+            for i in context_raw:
                      if i in context_cleaned:
                           continue
                      else:
                           context_cleaned.append(i)
 
-                context_normalized = "\n\n".join(context_cleaned)
-                print(context_normalized)
-                if st.button("GENRATE"):
+            context_normalized = "\n\n".join(context_cleaned)
+                
+            if st.button("GENERATE JOB DESCRIPTION", key = "gen2"):
                     
 
                 
-                    Questions = llm.predict(f"""Using the {context_normalized} provided, act as a specialized HR consultant to generate a thorough and compelling job description. You are required to STRICTLY utilize the information given in the context to create the job description. Here is the structure your response should follow:
+                    final_response = llm.predict(f"""Using the {context_normalized} provided, act as a specialized HR consultant to generate a thorough and compelling job description. You are required to STRICTLY utilize the information given in the context to create the job description. Here is the structure your response should follow:
 
                 Job Title: Review the job title provided in the context. If it's clear, concise, and accurately reflects the role, keep it. If not, modify it to better match the role requirements and be easily understood by qualified candidates. Use industry-standard or recognizable job titles.
 
@@ -149,7 +148,8 @@ if role_title and job_description:
                 - Set reasonable requirements
                 - Use clear language
                 - Avoid words related to Sexism, Racism, Tokenism, Ableism, Ageism, Elitism, Religion
-                """)                
-                    st.write(Questions)                       
-        else:
-                    print("Nothing")
+                """) 
+                    with st.chat_message("assistant"):
+                        st.session_state.messages.append({"sender": "assistant", "message": f"{final_response}"})
+                        conversation.write(display_messages(st.session_state.messages))               
+                        st.write(final_response)
