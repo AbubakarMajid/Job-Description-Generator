@@ -4,6 +4,7 @@ from langchain.llms import OpenAI
 import os
 import re
 
+# api key
 os.environ['OPENAI_API_KEY'] = "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"
 llm = OpenAI(temperature=0, model="text-davinci-003", max_tokens=500)
 st.title("Job Description Generator")
@@ -11,6 +12,7 @@ st.sidebar.subheader("Chat")
 
 conversation = st.sidebar.empty()
 
+# getiing inital
 role_title = st.text_input("Job Role", key="job role")
 if role_title:
     with st.chat_message("User"):
