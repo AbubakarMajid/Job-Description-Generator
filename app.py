@@ -5,7 +5,7 @@ import os
 import re
 
 # api key
-os.environ['OPENAI_API_KEY'] = "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"
+os.environ['OPENAI_API_KEY'] = "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"
 llm = OpenAI(temperature=0, model="text-davinci-003", max_tokens=500)
 st.title("Job Description Generator")
 st.sidebar.subheader("Chat")
