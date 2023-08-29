@@ -9,7 +9,7 @@ load_dotenv("D:\\job_description\\api.env")
 API_KEY = os.getenv("API_KEY")
 os.environ['OPENAI_API_KEY'] = API_KEY
 # api key
-os.environ['OPENAI_API_KEY'] = "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"
+os.environ['OPENAI_API_KEY'] = "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"
 llm = OpenAI(temperature=0, model="text-davinci-003", max_tokens=500)
 st.title("Job Description Generator")
 st.sidebar.subheader("Chat")
