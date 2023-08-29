@@ -2,8 +2,12 @@ import streamlit as st
 import langchain
 from langchain.llms import OpenAI
 import os
+from dotenv import load_dotenv
 import re
 
+load_dotenv("D:\\job_description\\api.env")
+API_KEY = os.getenv("API_KEY")
+os.environ['OPENAI_API_KEY'] = API_KEY
 # api key
 os.environ['OPENAI_API_KEY'] = "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"
 llm = OpenAI(temperature=0, model="text-davinci-003", max_tokens=500)
