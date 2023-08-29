@@ -1,4 +1,8 @@
-Job Role: data Science
+Job Role: Data Science
 
-job_description: We are seeking a skilled and innovative Data Scientist to join our dynamic team. In this role, you will leverage your expertise in data analysis, statistical modeling, and machine learning to extract valuable insights from complex datasets. Collaborating closely with cross-functional teams, you will contribute to data-driven decision-making, develop predictive models, and create data visualizations that drive actionable recommendations. Your proficiency in programming languages such as Python or R, familiarity with data manipulation tools, and experience in building and deploying machine learning models will be vital in shaping our data-driven strategies. Join us to make a significant impact by transforming raw data into actionable intelligence and driving the success of our projects and business initiatives
+job_description: Job Description: Job Description: A motivated and passionate Data Scientist with 1+ Years of Industry Experience. Must be able to work remotely . Must be able to work with PST. Must have Python and DS Libraries expertise, OOP Programming expertise . Generative AI expertise such GPT, BERT etc. Good to have Power BI , SQL , MLOps , GCP skills
+
+
+Question:Can you provide a high-level overview of the Data Science role and its importance to the company?
+Answer:he is going to be part of the data science team which has successfully delivered Generative AI solutions to 101 companies . He is going to be working with LLMs and is going to be doing daily Data wrangling , feature engineering stuff.
 
